@@ -31,7 +31,10 @@ export default function RootLayout({
       > <div>
         <Header />
         </div>
+        <div className = "container mx-auto flex flex-col justify-center items-center min-h-screen px-12 pt-24 sm:pt-16">
         {children}
+        </div>
+        
       </body>
     </html>
   );
