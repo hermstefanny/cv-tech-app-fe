@@ -5,9 +5,10 @@ import homeImg from '/public/placeholder_inicio.png';
 
 export default async function Home() {
     return (
-      <div className="relative h-screen flex flex-col lg:flex-row p-12">
-        {/* Left section with the image, taking up one part of the layout */}
-        <div className="lg:w-1/3 w-full flex flex-col justify-center p-12">
+      <div className="relative h-screen flex flex-col p-12">
+        <div className = "flex flex-col lg:flex-row border rounded p-2">
+          {/* Left section with the image, taking up one part of the layout */}
+        <div className="lg:w-1/3 w-full flex flex-col justify-center p-12 ">
           <Image
             src={homeImg}
             alt="imagen de civic tech placeholder"
@@ -16,9 +17,9 @@ export default async function Home() {
         </div>
   
         {/* Right section with the title and text, divided into two parts */}
-        <div className="lg:w-2/3 w-full flex flex-col justify-center p-12">
+        <div className="lg:w-2/3 w-full flex flex-col justify-center ">
           {/* Upper right section for the title */}
-          <div className=" text-sky-600 text-4xl md:text-5xl lg:text-6xl text-left mb-4">
+          <div className=" text-sky-600 text-5xl lg:text-6xl text-left mb-4 ">
             Bienvenidos
           </div>
   
@@ -36,7 +37,14 @@ export default async function Home() {
             </p>
           </div>
         </div>
-      </div>
+       </div>
+
+<div className="flex justify-center mt-4 border rounded p-4">
+<button className="border rounded p-4 bg-sky-600 text-white mb-2  ">
+  Leer resúmenes
+</button>
+</div>
+</div>
     );
   }
   
