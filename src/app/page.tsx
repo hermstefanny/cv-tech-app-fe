@@ -6,7 +6,7 @@ import homeImg from '/public/placeholder_inicio.png';
 export default async function Home() {
     return (
       <div className="relative h-screen flex flex-col p-12">
-        <div className = "flex flex-col lg:flex-row border rounded p-2">
+        <div className = "flex flex-col lg:flex-row border rounded p-2"> {/*eventually erase border and rounded*/}
           {/* Left section with the image, taking up one part of the layout */}
         <div className="lg:w-1/3 w-full flex flex-col justify-center p-12 ">
           <Image
@@ -41,7 +41,8 @@ export default async function Home() {
 
 <div className="flex justify-center mt-4 border rounded p-4">
 <button className="border rounded p-4 bg-sky-600 text-white mb-2  ">
-  Leer resúmenes
+    
+  <Link href="/resumenes">Leer resúmenes</Link>
 </button>
 </div>
 </div>
