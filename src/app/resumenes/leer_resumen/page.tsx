@@ -1,50 +1,33 @@
-"use client";
+import { db } from '@/db';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { remark } from 'remark';
-import html from 'remark-html';
 
 interface Summary {
   id: string;
   document_id: string;
   date: string;
   summary: string;
-  content: string;
   problems: string[];
 }
 
-export default function Page() {
-  const [processedPosts, setProcessedPosts] = useState<JSX.Element[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetch('http://localhost:8000/summaries/');
-      const summaries: Summary[] = await data.json();
-      const processedPosts = await Promise.all(
-        summaries.map(async (summary) => {
-          const processedContent = await remark().use(html).process(summary.content);
-          const contentHtml = processedContent.toString();
-          return (
-            <li key={summary.id}>
-              <h3>{summary.document_id}</h3>
-              <p><strong>Fecha:</strong> {summary.date}</p>
-              <p><strong>Resumen Corto:</strong> {summary.summary}</p>
-              <p><strong>Problemas:</strong></p>
-              <ul>
-                {summary.problems && summary.problems.map((problem, index) => (
-                  <li key={index}>{problem}</li>
-                ))}
-              </ul>
-              <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
-            </li>
-          );
-        })
+export default async function Page() {
+  const summaries = await db.summary.findMany();
+  const processedPosts = await Promise.all(
+    summaries.map(async (summary) => {
+      return (
+        <li key={summary.id}>
+          <h3>{summary.document_id}</h3>
+          <p><strong>Fecha:</strong> {summary.date}</p>
+          <p><strong>Resumen Corto:</strong> {summary.summary}</p>
+          <p><strong>Problemas:</strong></p>
+          <ul>
+            {summary.problems && summary.problems.map((problem, index) => (
+              <li key={index}>{problem}</li>
+            ))}
+          </ul>
+        </li>
       );
-      setProcessedPosts(processedPosts);
-    };
-
-    fetchData();
-  }, []);
+    })
+  );
 
   return (
     <div>
