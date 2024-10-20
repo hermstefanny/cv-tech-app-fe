@@ -14,15 +14,12 @@ interface Summary {
 }
 
 export default function Page() {
-  const [summaries, setSummaries] = useState<Summary[]>([]);
   const [processedPosts, setProcessedPosts] = useState<JSX.Element[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch('http://localhost:8000/summaries/');
       const summaries: Summary[] = await data.json();
-      setSummaries(summaries);
-
       const processedPosts = await Promise.all(
         summaries.map(async (summary) => {
           const processedContent = await remark().use(html).process(summary.content);
