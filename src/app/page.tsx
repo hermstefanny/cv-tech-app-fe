@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import homeImg from 'public/placeholder_inicio.png';
+import homeImg from 'public/placeholder-inicio.png';
 
 
 export default async function Home() {
