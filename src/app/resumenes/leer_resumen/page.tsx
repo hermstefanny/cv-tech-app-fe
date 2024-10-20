@@ -1,14 +1,6 @@
 import { db } from '@/db';
 import Link from 'next/link';
 
-interface Summary {
-  id: string;
-  document_id: string;
-  date: string;
-  summary: string;
-  problems: string[];
-}
-
 export default async function Page() {
   const summaries = await db.summary.findMany();
   const processedPosts = await Promise.all(
