@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import acercaImg from '/public/placeholder_acerca_de.png'
+import acercaImg from 'public/placeholder_acerca_de.png'
 
 export default function AboutUs(){
     return(
