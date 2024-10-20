@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import Accordion from '@/components/Acordion';
+
 interface Summary {
   id: string;
   document_id: string;
@@ -13,29 +15,38 @@ interface SummariesByMonth {
   [key: string]: Summary[];
 }
 
-export default async function Page() {
-  const data = await fetch('http://localhost:8000/summaries/')
-  const summaries: Summary[] = await data.json()
+export default function Page() {
+  const [summariesByMonth, setSummariesByMonth] = useState<SummariesByMonth>({});
 
-  // Group summaries by month based on the `date` field
-  const summariesByMonth: SummariesByMonth = summaries.reduce((acc: SummariesByMonth, summary: Summary) => {
-    // Parse the date string directly
-    const date = new Date(summary.date); // Use summary.date directly if it's a string
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetch('http://localhost:8000/summaries/');
+      const summaries: Summary[] = await data.json();
 
-    // Check if the date is valid
-    if (!isNaN(date.getTime())) {
-      const month = date.toLocaleString('es-ES', { month: 'long' }); // e.g., "noviembre"
-      const formattedMonth: string = month.charAt(0).toUpperCase() + month.slice(1);
-      console.log(formattedMonth)
-      console.log(acc)
-      if (!acc[formattedMonth]) {
-        acc[formattedMonth] = [];
-      }
-      acc[formattedMonth].push(summary);
-    }
+      // Group summaries by month based on the `date` field
+      const groupedSummaries: SummariesByMonth = summaries.reduce((acc: SummariesByMonth, summary: Summary) => {
+        // Parse the date string directly
+        const date = new Date(summary.date); // Use summary.date directly if it's a string
 
-    return acc;
-  }, {});
+        // Check if the date is valid
+        if (!isNaN(date.getTime())) {
+          const month = date.toLocaleString('es-ES', { month: 'long' }); // e.g., "noviembre"
+          const formattedMonth: string = month.charAt(0).toUpperCase() + month.slice(1);
+
+          if (!acc[formattedMonth]) {
+            acc[formattedMonth] = [];
+          }
+          acc[formattedMonth].push(summary);
+        }
+
+        return acc;
+      }, {});
+
+      setSummariesByMonth(groupedSummaries);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div>
