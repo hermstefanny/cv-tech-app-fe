@@ -29,8 +29,7 @@ export default function AboutUs(){
             La aplicación usa la tecnología de ChatGPT para resumir las Actas de las Sesiones del Concejo Metropolitano de la ciudad de Quito, 
             documentos que se encuentran íntegros en la página web: <a href="https://gobiernoabierto.quito.gob.ec/" target="_blank" rel="noopener noreferrer"><b>Gobierno Abierto</b> </a>.
             Se han hecho esfuerzos para mantener la integridad de la información presentada, sin embargo, para obtener información verificada,
-            se recomienda revisar los documentos originales en la fuente oficial.
-                
+            se recomienda revisar los documentos originales en la fuente oficial.     
             </p>
           </div>
         </div>

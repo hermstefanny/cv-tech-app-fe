@@ -26,13 +26,12 @@ export default async function Home() {
           {/* Lower right section for the text */}
           <div className="text-wrap text-sky-800 text-base md:text-lg lg:text-xl">
             <p>
-            Esta aplicación web es un proyecto ciudadano y académico que está en construcción.
-            Es parte de un estudio para analizar si herramientas de inteligencia artificial pueden contribuir a la vida cívica,
-            facilitando la interpretación de datos abiertos del gobierno local.
-            La aplicación usa la tecnología de ChatGPT para resumir las Actas de las Sesiones del Concejo Metropolitano de la ciudad de Quito, 
-            documentos que se encuentran íntegros en la página web: <a href="https://gobiernoabierto.quito.gob.ec/" target="_blank" rel="noopener noreferrer">Gobierno Abierto</a>
+            Esta aplicación web es un proyecto ciudadano y académico en construcción.
+            
             Se han hecho esfuerzos para mantener la integridad de la información presentada, sin embargo, para obtener información verificada,
             se recomienda revisar los documentos originales en la fuente oficial.
+
+            
             Cualquier duda o comentario, por favor no dude en contactarnos.
             </p>
           </div>
