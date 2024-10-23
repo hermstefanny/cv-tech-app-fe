@@ -5,7 +5,7 @@ import homeImg from 'public/civic-home.png';
 
 export default async function Home() {
   return (
-    <div className="relative min-h-screen flex flex-col justify-center items-center p-12 bg-white">
+    <div className="relative min-h-screen flex flex-col justify-center items-center p-8 bg-white">
       <div className="text-sky-600 text-5xl lg:text-6xl text-left mb-4">
         <h1>
           ¿Qué es CiviConecta?
@@ -33,9 +33,9 @@ export default async function Home() {
           </div>
           <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/90 p-4 md:p-6 lg:p-8  leading-relaxed shadow-md">
             <p>
-              A través de la tecnología, deseamos impulsar la transparencia de la gestión pública,
-              desarrollando herramientas para interpretar y difundir los datos que provienen de fuentes oficiales,
-              contribuyendo de esta manera, a la vida democrática de una ciudadanía mejor informada y más participativa.
+              Deseamos impulsar la transparencia de la gestión pública a través de tecnología,
+              desarrollando herramientas para interpretar los datos que provienen de fuentes oficiales,
+              contribuyendo a la vida democrática de una ciudadanía mejor informada y más participativa.
             </p>
           </div>
         </div>
@@ -63,8 +63,8 @@ export default async function Home() {
 
       {/* Footer Note */}
       <div className="text-center p-4 ">
-        <p className="text-sm text-gray-600 border border-rose-400 leading-relaxed shadow-md mt-2 p-3">
-          <strong className = "font-bold">Nota:</strong> Este proyecto es un <span className="font-semibold">prototipo en desarrollo</span>. Te invitamos a consultar la sección
+        <p className="text-sm text-gray-600 border border-rose-400 leading-relaxed shadow-md mt-2 p-2">
+          <strong className = "font-bold">Nota:</strong> Este proyecto es un <span className="font-semibold">prototipo en desarrollo</span>. Consulta la sección
           <span className="mr-1"> </span>
           <a href="/acerca_de" className="text-sky-600 hover:text-blue-700 underline">Acerca del Proyecto</a> para obtener más información al respecto.
         </p>

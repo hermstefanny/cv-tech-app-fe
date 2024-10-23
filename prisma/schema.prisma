@@ -13,10 +13,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
 model Summary {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  document_id String
-  date        String
-  summary     String
-  problems    String[]
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  document_id     String
+  act_name        String
+  date            String
+  document_url    String
+  content         String[]
 }

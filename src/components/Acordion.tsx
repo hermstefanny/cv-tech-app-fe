@@ -1,12 +1,11 @@
-// src/components/Accordion.js
-"use client"; // Ensure this is a Client Component
+"use client";
 import Link from 'next/link';
 import { useState } from "react";
 // Define the Summary interface
 interface Summary {
   id: string;
-  document_id: string;
   date: string;
+  act_name: string;
 }
 
 // Define the SummariesByMonth interface
@@ -16,11 +15,15 @@ interface SummariesByMonth {
 
 // Define the props interface for the Accordion component
 interface AccordionProps {
-  summariesByMonth: SummariesByMonth;
+  summariesByMonth: SummariesByMonth  | null | undefined;
 }
 
 export default function Accordion({ summariesByMonth }: AccordionProps) {
   const [openMonth, setOpenMonth] = useState<string | null>(null);
+
+  if (!summariesByMonth) {
+    return <div>Cargando...</div>;
+  }
 
   const monthOrder = [
     "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
@@ -54,8 +57,9 @@ export default function Accordion({ summariesByMonth }: AccordionProps) {
                 {summariesByMonth[month].map((summary) => (
                   <div key={summary.id} className="border p-2">
                     <button className="text-left">
-                      <Link href="/resumenes/leer_resumen"><p>
-                        <strong>Nombre:</strong> {summary.document_id}
+                    <Link href={`/resumenes/leer_resumen?id=${summary.id}`}>
+                    <p>
+                        <strong>Nombre:</strong> {summary.act_name}
                       </p>
                         <p>
                           <strong>Fecha:</strong> {summary.date}

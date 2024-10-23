@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function Footer() {
     return (
       <footer className="w-absolute bg-sky-800 text-white py-6 mt-12">

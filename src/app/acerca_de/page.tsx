@@ -17,7 +17,7 @@ export default async function Home() {
           {/* Left section with the image, centered within its container */}
           <Image
             src={acercaImg}
-            alt="Ilustracion sobre transparencia a través de medios tecnológicos"
+            alt="Ilustracion sobre proyecto acdémico en construcción"
             className="object-contain max-h-96"
           />
         </div>
