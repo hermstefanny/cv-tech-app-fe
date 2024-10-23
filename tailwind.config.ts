@@ -13,8 +13,8 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        sans: ['Open Sans', 'sans-serif'], // Para texto
-        montserrat: ['Montserrat', 'sans-serif'], // Para títulos y botones
+        montserrat: ['var(--font-montserrat)', 'sans-serif'],
+        openSans: ['var(--font-open-sans)', 'sans-serif'],
       },
     },
   },

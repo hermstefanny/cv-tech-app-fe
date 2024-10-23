@@ -18,7 +18,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-open-sans-regular), sans-serif; /* Default font */
+  font-family: var(--font-open-sans), sans-serif; /* Default font */
 }
 
 /* Utility for text wrapping */
@@ -35,11 +35,9 @@ p, a, li, div, span {
 
 /* Include any specific styles for headers to use Montserrat */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif; /* Ensure headers use Montserrat */
-  font-weight: 700; /* Optional: Make them bold */
+  font-family: var(--font-montserrat), sans-serif; /* Ensure headers use Montserrat */
 }
 
 button {
-  font-family: 'Montserrat', sans-serif; /* Use Montserrat for buttons */
-  font-weight: 700;
+  font-family: var(--font-montserrat); /* Use Montserrat for buttons */
 }

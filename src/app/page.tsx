@@ -33,7 +33,9 @@ export default async function Home() {
           </div>
           <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/90 p-4 md:p-6 lg:p-8  leading-relaxed shadow-md">
             <p>
-              Creemos que, para lograr verdadera participación democrática, las comunidades deben estar informadas sobre las decisiones que afectan su día a día.
+              A través de la tecnología, deseamos impulsar la transparencia de la gestión pública,
+              desarrollando herramientas para interpretar y difundir los datos que provienen de fuentes oficiales,
+              contribuyendo de esta manera, a la vida democrática de una ciudadanía mejor informada y más participativa.
             </p>
           </div>
         </div>
@@ -42,11 +44,11 @@ export default async function Home() {
       {/* Additional Text Block Section */}
       
         <div className="w-full p-2 lg:p-4">
-          <div className="text-sky-800 text-xs md:text-sm lg:text-base bg-sky-100/80 p-4 md:p-6 lg:p-8 leading-relaxed shadow-md">
+          <div className="text-sky-800 text-xs md:text-sm lg:text-base border border-sky-600 leading-relaxed shadow-md p-4 md:p-4 lg:p-6">
             <p>
-              Es por eso que, a través de la tecnología, deseamos impulsar la transparencia de la gestión pública,
-              desarrollando herramientas para interpretar y difundir los datos que provienen de fuentes oficiales,
-              contribuyendo de esta manera, a la vida democrática de una ciudadanía mejor informada y más participativa.
+           Para esta primera etapa, hemos desarrollado un prototipo que resume con Inteligencia Artificial las Actas de las Sesiones del Concejo Metropolitano de Quito,
+           con la finalidad de dar a conocer de manera más accesible y comprensible la información que se discute en el Concejo.
+           Te invitamos a leer estos resúmenes.
             </p>
           </div>
         </div>
@@ -60,9 +62,9 @@ export default async function Home() {
       </div>
 
       {/* Footer Note */}
-      <div className="text-center p-4">
-        <p className="text-sm text-gray-600">
-          <strong>Nota:</strong> Este proyecto es un <span className="font-semibold">prototipo en desarrollo</span>. Te invitamos a consultar la sección
+      <div className="text-center p-4 ">
+        <p className="text-sm text-gray-600 border border-rose-400 leading-relaxed shadow-md mt-2 p-3">
+          <strong className = "font-bold">Nota:</strong> Este proyecto es un <span className="font-semibold">prototipo en desarrollo</span>. Te invitamos a consultar la sección
           <span className="mr-1"> </span>
           <a href="/acerca_de" className="text-sky-600 hover:text-blue-700 underline">Acerca del Proyecto</a> para obtener más información al respecto.
         </p>
