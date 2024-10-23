@@ -3,7 +3,8 @@ import acercaImg from 'public/Academic-about-us.png'
 
 export default function AboutUs(){
     return(
-        <div className="relative h-screen flex flex-col lg:flex-row p-12">
+      <div className="relative h-screen flex flex-col p-12">
+         <div className = "flex flex-col lg:flex-row  p-2"> 
         {/* Left section with the image, taking up one part of the layout */}
         <div className="lg:w-2/3 w-full flex flex-col justify-center p-12">
           <Image
@@ -17,7 +18,8 @@ export default function AboutUs(){
         <div className="lg:w-1/3 w-full flex flex-col justify-center">
           {/* Upper right section for the title */}
           <div className=" text-sky-600 text-4xl md:text-4xl lg:text-5xl text-left mb-4">
-            Acerca de este proyecto
+            <h1> Acerca de este proyecto</h1>
+            
           </div>
   
           {/* Lower right section for the text */}
@@ -29,10 +31,13 @@ export default function AboutUs(){
             La aplicación usa la tecnología de ChatGPT para resumir las Actas de las Sesiones del Concejo Metropolitano de la ciudad de Quito, 
             documentos que se encuentran íntegros en la página web: <a href="https://gobiernoabierto.quito.gob.ec/" target="_blank" rel="noopener noreferrer"><b>Gobierno Abierto</b> </a>.
             Se han hecho esfuerzos para mantener la integridad de la información presentada, sin embargo, para obtener información verificada,
-            se recomienda revisar los documentos originales en la fuente oficial.     
+            se recomienda revisar los documentos originales en la fuente oficial.  
+            Si tiene alguna duda sobre el proyecto o el estudio, no dude en contactarnos a 
+        <a href="mailto:aess504@york.ac.uk" className="text-blue-500 hover:text-blue-700 underline ml-1">aess504@york.ac.uk</a>.   
             </p>
           </div>
         </div>
-      </div>
+        </div>
+        </div>
     );  
 }

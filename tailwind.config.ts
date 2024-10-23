@@ -12,8 +12,14 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        sans: ['Open Sans', 'sans-serif'], // Para texto
+        montserrat: ['Montserrat', 'sans-serif'], // Para títulos y botones
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    
+  ],
 };
 export default config;

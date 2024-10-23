@@ -3,14 +3,14 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/header";
 
-const geistSans = localFont({
-  src: "../fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
+const montserrat = localFont({
+  src: "../fonts/Montserrat-Thin.woff",
+  variable: "--font-montserrat-thin",
   weight: "100 900",
 });
-const geistMono = localFont({
-  src: "../fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+const openSans = localFont({
+  src: "../fonts/OpenSans-Regular.woff",
+  variable: "--font-open-sans-regular",
   weight: "100 900",
 });
 
@@ -27,11 +27,11 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${montserrat.variable} ${openSans.variable} antialiased`}
       > <div>
         <Header />
         </div>
-        <div className = "container mx-auto flex flex-col justify-center items-center min-h-screen px-12 pt-24 sm:pt-16">
+        <div className = "container mx-auto flex flex-col justify-center items-center min-h-screen px-12 pt-20 sm:pt-16">
         {children}
         </div>
         
