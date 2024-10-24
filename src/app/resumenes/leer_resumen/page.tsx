@@ -33,7 +33,7 @@ function SummaryPage() {
                   <p className="text-sky-800 font-semibold p-2" ><strong>Fecha:</strong> {new Date(summary.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                   <ul>
                     {summary.content && summary.content.map((content, index) => (
-                      <div className="flex flex-wrap p-2">
+                      <div key={index} className="flex flex-wrap p-2">
                         <li className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/80 p-4  lg:p-4 leading-relaxed shadow-md" key={index}>{content}</li>
                       </div>
                     ))}
