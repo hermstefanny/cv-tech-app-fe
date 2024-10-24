@@ -29,6 +29,7 @@ export default async function Home() {
           <p>
                 Esta aplicación web es un  <strong className = "font-semibold"> proyecto ciudadano y académico </strong> que está en construcción.
                 Es parte de un estudio para analizar si herramientas de inteligencia artificial pueden contribuir a la vida cívica.
+                Esto incluye, por supuesto, medir su precisión y veracidad.
               </p>          
           </div>
           <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/90 p-4 md:p-6 lg:p-8  leading-relaxed shadow-md">

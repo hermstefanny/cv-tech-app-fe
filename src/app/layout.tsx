@@ -8,14 +8,14 @@ const montserrat = localFont({
   src: "../fonts/Montserrat-VariableFont_wght.woff2",
   variable: "--font-montserrat",
   weight: "100 900",
-  style:"normal",
+  style: "normal",
 });
 
 const openSans = localFont({
   src: "../fonts/OpenSans-VariableFont_wdth_wght.woff2",
   variable: "--font-open-sans",
   weight: "100 900",
-  style:"normal",
+  style: "normal",
 });
 
 export const metadata: Metadata = {

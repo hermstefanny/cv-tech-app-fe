@@ -1,16 +1,16 @@
 import Link from 'next/link';
 
-export default function Header(){
-    return(
-        <div className = "w-full absolute text-white bg-sky-800 z-10">
-            <nav className = "container relative flex flex-wrap items-center justify-between mx-auto p-6 ">
-            <Link href="/" className = "font-bond text-2xl font-open-sans font-semibold hover:text-sky-400 ">CiviConecta</Link>
-            <div className = "space-x-3 text-lg">
-            <Link href="/resumenes" className = "font-montserrat font-semibold  hover:text-sky-400 ">Actas del Concejo de Quito </Link>
-            <Link href="/acerca_de" className = "font-montserrat font-semibold  hover:text-sky-400">Acerca del Proyecto</Link>
-            </div>
+export default function Header() {
+    return (
+        <div className="w-full absoulte top-0 text-white bg-sky-800 z-50 shadow-md">
+            <nav className="container relative flex flex-wrap items-center justify-between mx-auto p-6 ">
+                <Link href="/" className="font-bond text-2xl font-open-sans font-semibold hover:text-sky-400 ">CiviConecta</Link>
+                <div className="space-x-3 text-lg">
+                    <Link href="/resumenes" className="font-montserrat font-semibold  hover:text-sky-400 ">Actas del Concejo de Quito </Link>
+                    <Link href="/acerca_de" className="font-montserrat font-semibold  hover:text-sky-400">Acerca del Proyecto</Link>
+                </div>
             </nav>
         </div>
-            
-    );  
+
+    );
 }
