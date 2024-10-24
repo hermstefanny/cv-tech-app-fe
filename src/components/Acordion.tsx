@@ -55,7 +55,7 @@ export default function Accordion({ summariesByMonth }: AccordionProps) {
             {openMonth === month && (
               <div className="w-full p-2 overflow-hidden border leading-relaxed mt-0 shadow-md">
                 {summariesByMonth[month].map((summary) => (
-                  <div className = "p-1" key={summary.id}>
+                  <div key={summary.id}>
                     <button className="text-center text-base p-1 bg-sky-200 border rounded-md text-sky-800 hover:bg-blue-300 transition shadow-lg">
                       <Link href={`/resumenes/leer_resumen?id=${summary.id}`}>
                         <p className = "text text-sm"><strong >{summary.act_name}: </strong> </p>
