@@ -77,10 +77,7 @@ function SummaryPage() {
 export default function Page() {
   return (
     <div>
-      <h1 className="text-white text-6xl">
-        Resumenes
-      </h1>
-      <Suspense fallback={<div>Cargando...</div>}>
+     <Suspense fallback={<div>Cargando...</div>}>
         <SummaryPage />
       </Suspense>
       <div className="flex justify-center mt-6 p-4">
