@@ -42,21 +42,21 @@ export default function Accordion({ summariesByMonth }: AccordionProps) {
     <div key="test" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
       {monthOrder.map((month) => (
         summariesByMonth[month] && (
-          <div key={month} className="flex flex-col col-span-1 aspect-w-1  w-full sm:w-52 flex-grow">
+          <div key={month} className="flex flex-col  aspect-w-1  w-full sm:w-52 flex-grow">
             {/* Button for each month */}
             <button
               onClick={() => toggleAccordion(month)}
-              className={`w-full border rounded p-1 text-white mb-2 ${openMonth === month ? "bg-sky-800" : "bg-sky-600  hover:bg-sky-700 transition shadow-inner"
+              className={`w-full border rounded p-2  text-white mb-2 ${openMonth === month ? "bg-sky-800" : "bg-sky-600  hover:bg-sky-700 transition shadow-inner"
                 }`}
             >
               {month}
             </button>
             {/* Accordion content that expands below the button */}
             {openMonth === month && (
-              <div className="w-full p-2 overflow-hidden border leading-relaxed mt-0 shadow-md">
+              <div className="w-full p-2 flex flex-col gap-2 border leading-relaxed mt-0 shadow-md">
                 {summariesByMonth[month].map((summary) => (
                   <div key={summary.id}>
-                    <button className="text-center text-base p-1 bg-sky-200 border rounded-md text-sky-800 hover:bg-blue-300 transition shadow-lg">
+                    <button className="min-w-full min-h-full text-center text-base p-1  bg-sky-200 border rounded-md text-sky-800 hover:bg-blue-300 transition shadow-lg">
                       <Link href={`/resumenes/leer_resumen?id=${summary.id}`}>
                         <p className = "text text-sm"><strong >{summary.act_name}: </strong> </p>
                         <p className = "text text-sm">{new Date(summary.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</p>

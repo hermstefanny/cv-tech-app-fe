@@ -49,8 +49,8 @@ export default function Page() {
   }, []);
   return (
     <div>
-      <h1 className="text-sky-600 text-5xl lg:text-6xl text-center mb-4">
-        Resúmenes por mes
+      <h1 className="text-sky-600 text-2xl sm:text-sm  lg:text-4xl text-center mb-4">
+        Sesiones del Concejo Metropolitano del año del 2024
       </h1>
       {/* Pass the grouped summaries to the Accordion component */}
       <Accordion summariesByMonth={groupedSummaries} />

@@ -55,7 +55,7 @@ function SummaryPage() {
             <div>
               <p className="text-sm text-gray-600 border border-rose-400 leading-relaxed shadow-md mt-2 p-2">
                 <strong>Nota:</strong> Este resumen fue generado con una herramienta de Inteligencia Artificial. 
-                Aunque se ha procurado mantener la exactitud de la , se recomienda revisar el documento original para mayor precisión.
+                Aunque se ha procurado mantener la exactitud de la información, se recomienda revisar el documento original para mayor precisión.
               </p>
             </div>
           </div>

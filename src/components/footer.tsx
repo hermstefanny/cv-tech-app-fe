@@ -8,7 +8,7 @@ export default function Footer() {
         
           {/* Credits and Legal Information */}
           <p className="flex items-center space-x-2">
-          <Image src={LogoImg} alt="CiviConecta Logo" width={40} height={40} />
+          <Image src={LogoImg} alt="CiviConecta Logo" width={30} height={30} />
           <span className="text-xs text-gray-300"> © 2024 CiviConecta. Todos los derechos reservados. Proyecto académico en construcción.</span>
 
           </p>

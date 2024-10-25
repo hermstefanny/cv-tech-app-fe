@@ -30,11 +30,12 @@ export default async function Home() {
                 CiviConecta es un  <strong className="font-semibold"> proyecto ciudadano y académico </strong> en construcción.
                 No está asociado a ninguna entidad gubernamental o política.
               </p>
-             </div>
+            </div>
+
             <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/90 p-4 md:p-6 lg:p-8  leading-relaxed shadow-md">
               <p>
-                Este aplicación web es parte de un estudio para analizar si herramientas de inteligencia artificial pueden contribuir a la vida cívica.
-                Usamos la API de OpenAI para resumir las Actas de las Sesiones del Concejo Metropolitano de Quito,
+              Este aplicación web es parte de un estudio académico.
+                Usamos la API de OpenAI para resumir las Actas de las Sesiones del Concejo Metropolitano de Quito del año 2024,
                 documentos que se encuentran íntegros en la página web: <a href="https://gobiernoabierto.quito.gob.ec/sesiones-concejo" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 underline"><b>Gobierno Abierto</b></a>.
               </p>
             </div>
