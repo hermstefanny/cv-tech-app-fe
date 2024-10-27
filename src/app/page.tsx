@@ -1,9 +1,29 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 import homeImg from 'public/civic-home.png';
+import { useTime } from '@/context/TimeContext';
+import { useEffect } from 'react';
 
 
-export default async function Home() {
+export default function Home() {
+  const {startTime, setStartTime} = useTime();
+
+  useEffect(() => {
+    setStartTime(Date.now());
+  }, []);
+
+  const handleClick = () => {
+    if (startTime) {
+      const timeElapsed = Date.now() - startTime;
+      setStartTime(null);
+      console.log(`Time elapsed since page render: ${timeElapsed} ms`);
+      // You can also send this data to an analytics service or perform any other action
+    }
+  };
+
+
+
   return (
     <div className="relative min-h-screen flex flex-col justify-center items-center p-8 bg-white">
       <div className="text-sky-600 text-5xl lg:text-6xl text-left mb-4">
@@ -56,7 +76,7 @@ export default async function Home() {
 
       {/* Button Section */}
       <div className="flex justify-center mt-6 p-4">
-        <button className="border rounded p-2 bg-sky-600 text-white mb-2 hover:bg-sky-700 transition">
+        <button onClick={handleClick} className="border rounded p-2 bg-sky-600 text-white mb-2 hover:bg-sky-700 transition">
           <Link href="/resumenes">Leer resúmenes</Link>
         </button>
       </div>

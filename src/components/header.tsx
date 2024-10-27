@@ -1,8 +1,19 @@
-import Link from 'next/link';
+import { useTime } from '@/context/TimeContext';
 import Image from 'next/image';
+import Link from 'next/link';
 import LogoImg from 'public/CiviConectaLogo.png';
 
 export default function Header() {
+    const { startTime, setStartTime } = useTime();
+
+    const handleClick = () => {
+        console.log('Clicking the header', startTime);
+        if (startTime !== null) {
+            console.log("Lapse time", Date.now() - startTime);
+            setStartTime(null);
+        }
+    };
+
     return (
         <div className="w-full absoulte top-0 text-white bg-sky-800 z-50 shadow-md">
             <nav className="container relative flex flex-wrap items-center justify-between mx-auto p-6 ">
@@ -12,7 +23,7 @@ export default function Header() {
                     <span className="text-2xl font-bold">CiviConecta</span>
                 </Link>
                 <div className="space-x-3 text-lg">
-                    <Link href="/resumenes" className="font-montserrat font-semibold  hover:text-sky-400 ">Actas del Concejo de Quito </Link>
+                    <Link onClick={handleClick} href="/resumenes" className="font-montserrat font-semibold  hover:text-sky-400 ">Actas del Concejo de Quito </Link>
                     <Link href="/acerca_de" className="font-montserrat font-semibold  hover:text-sky-400">Acerca del Proyecto</Link>
                 </div>
             </nav>
