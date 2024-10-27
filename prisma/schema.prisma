@@ -13,12 +13,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Summary {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId
-  document_id     String
-  act_name        String
-  date            String
-  document_url    String
-  content         String[]
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  document_id  String
+  act_name     String
+  date         String
+  document_url String
+  content      String[]
+}
+
+model UserActions {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  user_id  String
+  action String
+  date     String
 }

@@ -30,13 +30,45 @@ export default function Accordion({ summariesByMonth }: AccordionProps) {
     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
   ];
 
-  const toggleAccordion = (month: string) => {
+  const toggleAccordion = async (month: string) => {
     if (openMonth === month) {
       setOpenMonth(null); // Close if clicked again
     } else {
       setOpenMonth(month); // Open the clicked month's section
     }
+    const date = new Date().toISOString();
+    const action = `Click on MES de ${month} button`;
+    let userId = localStorage.getItem("userId");
+    await fetch("/api/actions", {
+      body: JSON.stringify({
+        userId,
+        date,
+        action,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
   };
+
+  const handleClickDoc = async (act_name: string) => {
+    const date = new Date().toISOString();
+    const action =`Click on acta ${act_name}`;
+    let userId = localStorage.getItem("userId");
+    await fetch("/api/actions", {
+        body: JSON.stringify({
+            userId,
+            date,
+            action,
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+        method: "POST",
+    });
+
+}
 
   return (
     <div key="test" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
@@ -57,9 +89,9 @@ export default function Accordion({ summariesByMonth }: AccordionProps) {
                 {summariesByMonth[month].map((summary) => (
                   <div key={summary.id}>
                     <button className="min-w-full min-h-full text-center text-base p-1  bg-sky-200 border rounded-md text-sky-800 hover:bg-blue-300 transition shadow-lg">
-                      <Link href={`/resumenes/leer_resumen?id=${summary.id}`}>
-                        <p className = "text text-sm"><strong >{summary.act_name}: </strong> </p>
-                        <p className = "text text-sm">{new Date(summary.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+                      <Link onClick={() => handleClickDoc(summary.act_name)} href={`/resumenes/leer_resumen?id=${summary.id}`}>
+                        <p className="text text-sm"><strong >{summary.act_name}: </strong> </p>
+                        <p className="text text-sm">{new Date(summary.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                       </Link>
                     </button>
                   </div>
