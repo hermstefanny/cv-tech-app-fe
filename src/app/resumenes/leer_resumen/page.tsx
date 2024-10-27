@@ -15,6 +15,26 @@ interface Summary {
 }
 
 function SummaryPage() {
+
+  
+  const handleClickPDF = async (document_id:string) => {
+    const date = new Date().toISOString();
+    const action = `Click on PDF_${document_id}`;
+    let userId = localStorage.getItem("userId");
+    await fetch("/api/actions", {
+        body: JSON.stringify({
+            userId,
+            date,
+            action,
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+        method: "POST",
+    });
+
+}
+
   const [processedSummary, setProcessedSummary] = useState<JSX.Element>();
   const searchParams = useSearchParams();
   useEffect(() => {
@@ -47,7 +67,7 @@ function SummaryPage() {
                   className="object-contain max-h-96"
                 />
                 <button className="border rounded p-2 bg-amber-600 text-white shadow-md mb-2  hover:bg-amber-800 transition ">
-                  <Link href={summary.document_url} target="_blank" rel="noopener noreferrer">LINK AL DOCUMENTO ORIGINAL</Link>
+                  <Link onClick={() => handleClickPDF(summary.document_id)}href={summary.document_url} target="_blank" rel="noopener noreferrer">LINK AL DOCUMENTO ORIGINAL</Link>
                 </button>
               </div>
             </div>

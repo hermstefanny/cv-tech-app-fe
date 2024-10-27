@@ -6,6 +6,7 @@ interface Summary {
   id: string;
   date: string;
   act_name: string;
+  document_id: string;
 }
 
 // Define the SummariesByMonth interface
@@ -37,7 +38,7 @@ export default function Accordion({ summariesByMonth }: AccordionProps) {
       setOpenMonth(month); // Open the clicked month's section
     }
     const date = new Date().toISOString();
-    const action = `Click on MES de ${month} button`;
+    const action = `Click on MES_${month} button`;
     let userId = localStorage.getItem("userId");
     await fetch("/api/actions", {
       body: JSON.stringify({
@@ -52,9 +53,9 @@ export default function Accordion({ summariesByMonth }: AccordionProps) {
     });
   };
 
-  const handleClickDoc = async (act_name: string) => {
+  const handleClickDoc = async (doc_id: string) => {
     const date = new Date().toISOString();
-    const action =`Click on acta ${act_name}`;
+    const action =`Click on RESUMEN_${doc_id}`;
     let userId = localStorage.getItem("userId");
     await fetch("/api/actions", {
         body: JSON.stringify({
@@ -89,7 +90,7 @@ export default function Accordion({ summariesByMonth }: AccordionProps) {
                 {summariesByMonth[month].map((summary) => (
                   <div key={summary.id}>
                     <button className="min-w-full min-h-full text-center text-base p-1  bg-sky-200 border rounded-md text-sky-800 hover:bg-blue-300 transition shadow-lg">
-                      <Link onClick={() => handleClickDoc(summary.act_name)} href={`/resumenes/leer_resumen?id=${summary.id}`}>
+                      <Link onClick={() => handleClickDoc(summary.document_id)} href={`/resumenes/leer_resumen?id=${summary.id}`}>
                         <p className="text text-sm"><strong >{summary.act_name}: </strong> </p>
                         <p className="text text-sm">{new Date(summary.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                       </Link>

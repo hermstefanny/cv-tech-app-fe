@@ -19,6 +19,7 @@ export async function fetchSummaryPageData() {
                     id: true,
                     date: true,
                     act_name: true,
+                    document_id: true,
                 },
             }
         );
