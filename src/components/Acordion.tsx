@@ -39,7 +39,7 @@ export default function Accordion({ summariesByMonth }: AccordionProps) {
     }
     const date = new Date().toISOString();
     const action = `Click on MES_${month} button`;
-    let userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem("userId");
     await fetch("/api/actions", {
       body: JSON.stringify({
         userId,
@@ -56,7 +56,7 @@ export default function Accordion({ summariesByMonth }: AccordionProps) {
   const handleClickDoc = async (doc_id: string) => {
     const date = new Date().toISOString();
     const action =`Click on RESUMEN_${doc_id}`;
-    let userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem("userId");
     await fetch("/api/actions", {
         body: JSON.stringify({
             userId,

@@ -20,7 +20,7 @@ function SummaryPage() {
   const handleClickPDF = async (document_id:string) => {
     const date = new Date().toISOString();
     const action = `Click on PDF_${document_id}`;
-    let userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem("userId");
     await fetch("/api/actions", {
         body: JSON.stringify({
             userId,

@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import Image from 'next/image';
 import homeImg from 'public/civic-home.png';
 import { useRouter } from 'next/navigation';
@@ -11,7 +10,7 @@ export default function Home() {
   const handleClick = async () => {
     const date = new Date().toISOString();
     const action = "Click on LEER_ resúmenes";
-    let userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem("userId");
     await fetch("/api/actions", {
       body: JSON.stringify({
         userId,

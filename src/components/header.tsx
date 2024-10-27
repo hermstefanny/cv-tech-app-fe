@@ -7,7 +7,7 @@ export default function Header() {
     const handleClick = async () => {
         const date = new Date().toISOString();
         const action = "Click on MENU_Actas del Concejo de Quito";
-        let userId = localStorage.getItem("userId");
+        const userId = localStorage.getItem("userId");
         await fetch("/api/actions", {
             body: JSON.stringify({
                 userId,
