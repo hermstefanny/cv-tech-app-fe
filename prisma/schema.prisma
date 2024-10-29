@@ -24,7 +24,7 @@ model Summary {
 
 model UserActions {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
-  user_id  String
+  session_id  String
   action String
   date     String
 }

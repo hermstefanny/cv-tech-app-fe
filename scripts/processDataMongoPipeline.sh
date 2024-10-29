@@ -1,14 +1,14 @@
 [
   {
     $sort: {
-      user_id: 1,
+      session_id: 1,
       date: 1,
     },
   },
   {
     $group: {
-      _id: "$user_id",
-      // Group by user_id
+      _id: "$session_id",
+      // Group by session_id
       count: {
         $sum: 1,
       },

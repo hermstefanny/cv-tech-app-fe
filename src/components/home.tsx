@@ -20,13 +20,13 @@ export default function Home({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [, setUserId] = useState<string | null>(null);
+  const [, setSessionId] = useState<string | null>(null);
   useEffect(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
-      if (!localStorage.getItem('userId')) {
-        const generatedUserId = Math.random().toString(36).substring(2, 15);
-        localStorage.setItem('userId', generatedUserId);
-        setUserId(generatedUserId);
+      if (!localStorage.getItem('sessionId')) {
+        const generatedSessionId = Math.random().toString(36).substring(2, 15);
+        localStorage.setItem('sessionId', generatedSessionId);
+        setSessionId(generatedSessionId);
       }
     }
   }, []);

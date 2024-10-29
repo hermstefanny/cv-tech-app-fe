@@ -5,14 +5,14 @@ import { NextRequest } from 'next/server';
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  if (!body.userId || !body.action || !body.date) {
+  if (!body.sessionId || !body.action || !body.date) {
     return new Response(JSON.stringify({ message: 'Missing required fields' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },
     });
   }
 
-  const userAction = createUserActionAndPost(body.userId, body.action, body.date);
+  const userAction = createUserActionAndPost(body.sessionId, body.action, body.date);
   await db.userActions.create({
     data: userAction
   })

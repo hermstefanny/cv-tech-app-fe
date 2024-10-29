@@ -10,10 +10,10 @@ export default function Home() {
   const handleClick = async () => {
     const date = new Date().toISOString();
     const action = "Click on LEER_ resúmenes";
-    const userId = localStorage.getItem("userId");
+    const sessionId = localStorage.getItem("sessionId");
     await fetch("/api/actions", {
       body: JSON.stringify({
-        userId,
+        sessionId,
         date,
         action,
       }),
