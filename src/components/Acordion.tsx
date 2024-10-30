@@ -92,7 +92,7 @@ export default function Accordion({ summariesByMonth }: AccordionProps) {
                     <button className="min-w-full min-h-full text-center text-base p-1  bg-sky-200 border rounded-md text-sky-800 hover:bg-blue-300 transition shadow-lg">
                       <Link onClick={() => handleClickDoc(summary.document_id)} href={`/resumenes/leer_resumen?id=${summary.id}`}>
                         <p className="text text-sm"><strong >{summary.act_name}: </strong> </p>
-                        <p className="text text-sm">{new Date(summary.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+                        <p className="text text-sm">{new Date(summary.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric', timeZone:'UTC'  })}</p>
                       </Link>
                     </button>
                   </div>

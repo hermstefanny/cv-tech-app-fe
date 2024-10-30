@@ -33,7 +33,7 @@ export default function Page() {
 
         // Check if the date is valid
         if (!isNaN(date.getTime())) {
-          const month = date.toLocaleString('es-ES', { month: 'long' }); // e.g., "noviembre"
+          const month = date.toLocaleString('es-ES', { month: 'long', timeZone:'UTC' }); // e.g., "noviembre"
           const formattedMonth: string = month.charAt(0).toUpperCase() + month.slice(1);
 
           if (!acc[formattedMonth]) {

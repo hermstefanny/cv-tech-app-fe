@@ -4,6 +4,8 @@ import Image from 'next/image';
 import docLinkImg from 'public/link-document.png';
 import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import {remark} from 'remark';
+import html from 'remark-html';
 
 interface Summary {
   id: string;
@@ -15,8 +17,6 @@ interface Summary {
 }
 
 function SummaryPage() {
-
-
   const handleClickPDF = async (document_id: string) => {
     const date = new Date().toISOString();
     const action = `Click on PDF_${document_id}`;
@@ -35,8 +35,14 @@ function SummaryPage() {
 
   }
 
+  const processContent = async (content: string): Promise<string> => {
+    const processedContent = await remark().use(html).process(content);
+    return processedContent.toString();
+  };
+
   const [processedSummary, setProcessedSummary] = useState<JSX.Element>();
   const searchParams = useSearchParams();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -44,30 +50,28 @@ function SummaryPage() {
         const response = await fetch(`/api/summaries?id=${summaryId}`);
         const resp = await response.json();
         const summary: Summary = resp.summary;
+
+        const processedContents = await Promise.all(
+          summary.content.map((content) => processContent(content))
+        );
+
         const data = <div>
           <div className="w-full lg:max-w-6xl rounded-lg shadow-md p-2 overflow-hidden border leading-relaxed mt-4">
             <h3 className=" text text-sky-600 text-xl text-center lg:text-3xl p-2" ><strong>{summary.act_name}</strong></h3>
             <div className="flex flex-col lg:flex-row w-full lg:max-w-6xl items-center  overflow-hidden">
               <div className="lg:w-2/3 w-full flex  p-4 lg:p-4">
                 <div>
-                  <p className="text-sky-800 font-semibold p-2" ><strong>Fecha:</strong> {new Date(summary.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+                  <p className="text-sky-800 font-semibold p-2" ><strong>Fecha:</strong> {new Date(summary.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric', timeZone:'UTC' })}</p>
                   <ul>
-                    {summary.content && summary.content.map((content: string, index: number) => {
-                      // Split the content by ':' to get the title and the remaining text
-                      const [title, ...text] = content.split(":");
-
-                      return (
+                      {processedContents.map((htmlContent, index) => (
                         <div key={index} className="flex flex-wrap p-2">
-                          <li className="text-sky-800 text-xs md:text-sm lg:text-base bg-sky-100/80 p-4 lg:p-4 leading-relaxed shadow-md">
-                            {/* Display the title in bold on a new line */}
-                            <strong className="block">{title}</strong>
-                            {/* Display the remaining text on the next line in the same paragraph */}
-                            <span>{text.join(" ").trim()}</span>
-                          </li>
+                          <li
+                            className="text-sky-800 text-xs md:text-sm lg:text-base bg-sky-100/80 p-4 lg:p-4 leading-relaxed shadow-md"
+                            dangerouslySetInnerHTML={{ __html: htmlContent }}
+                          />
                         </div>
-                      );
-                    })}
-                  </ul>
+                      ))}
+                    </ul>
 
                 </div>
               </div>
