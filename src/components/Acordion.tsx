@@ -55,21 +55,21 @@ export default function Accordion({ summariesByMonth }: AccordionProps) {
 
   const handleClickDoc = async (doc_id: string) => {
     const date = new Date().toISOString();
-    const action =`Click on RESUMEN_${doc_id}`;
+    const action = `Click on RESUMEN_${doc_id}`;
     const sessionId = localStorage.getItem("sessionId");
     await fetch("/api/actions", {
-        body: JSON.stringify({
-           sessionId,
-            date,
-            action,
-        }),
-        headers: {
-            "Content-Type": "application/json",
-        },
-        method: "POST",
+      body: JSON.stringify({
+        sessionId,
+        date,
+        action,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
     });
 
-}
+  }
 
   return (
     <div key="test" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
@@ -87,16 +87,16 @@ export default function Accordion({ summariesByMonth }: AccordionProps) {
             {/* Accordion content that expands below the button */}
             {openMonth === month && (
               <div className="w-full p-2 flex flex-col gap-2 border leading-relaxed mt-0 shadow-md">
-                {summariesByMonth[month].map((summary) => (
-                  <div key={summary.id}>
-                    <button className="min-w-full min-h-full text-center text-base p-1  bg-sky-200 border rounded-md text-sky-800 hover:bg-blue-300 transition shadow-lg">
-                      <Link onClick={() => handleClickDoc(summary.document_id)} href={`/resumenes/leer_resumen?id=${summary.id}`}>
-                        <p className="text text-sm"><strong >{summary.act_name}: </strong> </p>
-                        <p className="text text-sm">{new Date(summary.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric', timeZone:'UTC'  })}</p>
-                      </Link>
-                    </button>
-                  </div>
-                ))}
+                {summariesByMonth[month].slice().sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()).map((summary) => (
+                    <div key={summary.id}>
+                      <button className="min-w-full min-h-full text-center text-base p-1  bg-sky-200 border rounded-md text-sky-800 hover:bg-blue-300 transition shadow-lg">
+                        <Link onClick={() => handleClickDoc(summary.document_id)} href={`/resumenes/leer_resumen?id=${summary.id}`}>
+                          <p className="text text-sm"><strong >{summary.act_name}: </strong> </p>
+                          <p className="text text-sm">{new Date(summary.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })}</p>
+                        </Link>
+                      </button>
+                    </div>
+                  ))}
               </div>
             )}
           </div>
