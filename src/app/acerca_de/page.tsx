@@ -34,9 +34,15 @@ export default async function Home() {
 
             <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/90 p-4 md:p-6 lg:p-8  leading-relaxed shadow-md">
               <p>
-              Este aplicación web es parte de un estudio académico.
                 Usamos la API de OpenAI para resumir las Actas de las Sesiones del Concejo Metropolitano de Quito del año 2024,
-                documentos que se encuentran íntegros en la página web: <a href="https://gobiernoabierto.quito.gob.ec/sesiones-concejo" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 underline"><b>Gobierno Abierto</b></a>.
+                documentos que se encuentran íntegros en el  <a href="https://gobiernoabierto.quito.gob.ec/sesiones-concejo" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 underline"><b>sitio oficial</b></a>.
+
+              </p>
+            </div>
+            <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/90 p-4 md:p-6 lg:p-8  leading-relaxed shadow-md">
+              <p>
+                La página <a href="https://gobiernoabierto.quito.gob.ec/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 underline"><b>Gobierno Abierto</b></a> incluye
+                además, información pública relevante sobre presupuestos, contrataciones, y otros temas de interés público.
               </p>
             </div>
           </div>
