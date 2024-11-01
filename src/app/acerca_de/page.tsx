@@ -23,26 +23,25 @@ export default async function Home() {
           </div>
 
           {/* Right section with the text */}
-          <div className="lg:w-1/3 w-full flex flex-col items-center p-2 lg:p-4 space-y-4">
+          <div className="lg:w-1/3 w-full flex flex-col items-center p-2 lg:p-3 space-y-4">
             {/* Text Blocks */}
-            <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/80 p-4 md:p-6 lg:p-8  leading-relaxed shadow-md">
+            <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/80 p-4 md:p-4 lg:p-6  leading-relaxed shadow-md">
               <p>
                 CiviConecta es un  <strong className="font-semibold"> proyecto ciudadano y académico </strong> en construcción.
                 No está asociado a ninguna entidad gubernamental o política.
               </p>
             </div>
 
-            <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/90 p-4 md:p-6 lg:p-8  leading-relaxed shadow-md">
+            <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/90 p-4 md:p-4 lg:p-6  leading-relaxed shadow-md">
               <p>
-                Usamos la API de OpenAI para resumir las Actas de las Sesiones del Concejo Metropolitano de Quito del año 2024,
+                Usamos la <strong>API de OpenAI</strong> para resumir las Actas de las Sesiones del Concejo Metropolitano de Quito del año 2024,
                 documentos que se encuentran íntegros en el  <a href="https://gobiernoabierto.quito.gob.ec/sesiones-concejo" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 underline"><b>sitio oficial</b></a>.
-
               </p>
             </div>
-            <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/90 p-4 md:p-6 lg:p-8  leading-relaxed shadow-md">
+            <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/90 p-4 md:p-4 lg:p-6 leading-relaxed shadow-md">
               <p>
                 La página <a href="https://gobiernoabierto.quito.gob.ec/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 underline"><b>Gobierno Abierto</b></a> incluye
-                además, información pública relevante sobre presupuestos, contrataciones, y otros temas de interés público.
+                además, información pública sobre presupuestos, obras y otros temas de interés ciudadano.
               </p>
             </div>
           </div>
@@ -51,6 +50,8 @@ export default async function Home() {
         {/* Additional Text Block Section */}
 
         <div className="w-full p-2 lg:p-4">
+
+
           <div className="text-sky-800 text-xs md:text-sm lg:text-base border border-rose-400 leading-relaxed shadow-md p-4 md:p-4 lg:p-6 ">
             <p>
               Se han hecho esfuerzos para mantener la integridad de la información presentada, sin embargo, para obtener información verificada,
@@ -59,6 +60,8 @@ export default async function Home() {
               <a href="mailto:aess504@york.ac.uk" className="text-blue-500 hover:text-blue-700 underline ml-1">aess504@york.ac.uk</a>.
             </p>
           </div>
+
+
         </div>
       </div>
 
