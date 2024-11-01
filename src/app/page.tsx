@@ -2,15 +2,15 @@
 import Image from 'next/image';
 import homeImg from 'public/civic-home.png';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 
 export default function Home() {
   const router = useRouter();
+  const hasSentPageLoadAction = useRef(false);
 
   useEffect(() => {
-    const hasSentPageLoadAction = localStorage.getItem('hasSentPageLoadAction');
-    if (!hasSentPageLoadAction) {
+    if (!hasSentPageLoadAction.current) {
       const date = new Date().toISOString();
       const action = "PAGINA PRINCIPAL CARGADA";
       const sessionId = localStorage.getItem("sessionId");
@@ -25,7 +25,7 @@ export default function Home() {
         },
         method: "POST",
       });
-      localStorage.setItem('hasSentPageLoadAction', 'true');
+      hasSentPageLoadAction.current = true;
     }
   }, []);
 
