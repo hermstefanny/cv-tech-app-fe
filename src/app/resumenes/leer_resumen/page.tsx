@@ -78,13 +78,15 @@ function SummaryPage() {
               <div className="lg:w-1/3 w-full flex flex-col items-center p-2 lg:p-4 space-y-4">
                 <Image
                   src={docLinkImg}
-                  alt="Ilustracion con el documento saliendo de un laptop"
+                  alt="Ilustracion con un documento saliendo de un laptop"
                   className="object-contain max-h-96"
                 />
-                <button className="border rounded p-2 bg-amber-600 text-white shadow-md mb-2  hover:bg-amber-800 transition ">
-                  <Link onClick={() => handleClickPDF(summary.document_id)} href={summary.document_url} target="_blank" rel="noopener noreferrer">LINK AL DOCUMENTO ORIGINAL</Link>
-                </button>
-              </div>
+                  <Link onClick={() => handleClickPDF(summary.document_id)} 
+                  href={summary.document_url} 
+                  target="_blank" rel="noopener noreferrer"
+                  className="border rounded p-2 bg-amber-600 text-white shadow-md mb-2  hover:bg-amber-800 transition ">
+                  LINK AL DOCUMENTO ORIGINAL</Link>
+                 </div>
             </div>
 
             <div>
