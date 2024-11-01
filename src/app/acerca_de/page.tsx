@@ -34,7 +34,7 @@ export default async function Home() {
 
             <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/90 p-4 md:p-4 lg:p-6  leading-relaxed shadow-md">
               <p>
-                Usamos la <strong>API de OpenAI</strong> para resumir las Actas de las Sesiones del Concejo Metropolitano de Quito del año 2024,
+                Usamos la <strong className="font-semibold">API de OpenAI</strong> para resumir las Actas de las Sesiones del Concejo Metropolitano de Quito del año 2024,
                 documentos que se encuentran íntegros en el  <a href="https://gobiernoabierto.quito.gob.ec/sesiones-concejo" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 underline"><b>sitio oficial</b></a>.
               </p>
             </div>

@@ -2,10 +2,32 @@
 import Image from 'next/image';
 import homeImg from 'public/civic-home.png';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 
 export default function Home() {
   const router = useRouter();
+
+  useEffect(() => {
+    const hasSentPageLoadAction = localStorage.getItem('hasSentPageLoadAction');
+    if (!hasSentPageLoadAction) {
+      const date = new Date().toISOString();
+      const action = "PAGINA PRINCIPAL CARGADA";
+      const sessionId = localStorage.getItem("sessionId");
+      fetch("/api/actions", {
+        body: JSON.stringify({
+          sessionId,
+          date,
+          action,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+      localStorage.setItem('hasSentPageLoadAction', 'true');
+    }
+  }, []);
 
   const handleClick = async () => {
     const date = new Date().toISOString();
