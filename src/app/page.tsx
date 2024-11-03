@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import homeImg from 'public/civic-home.png';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSession } from "@/context/SessionContext";
 
 export default function Home() {
