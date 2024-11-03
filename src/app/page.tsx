@@ -27,7 +27,7 @@ export default function Home() {
       },
       method: "POST",
     });
-  }, []);
+  }, [sessionId]);
 
   const handleClick = async () => {
     const date = new Date().toISOString();
