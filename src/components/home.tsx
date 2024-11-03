@@ -2,6 +2,7 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { TimeContext } from "@/context/TimeContext";
+import { SessionContext } from "@/context/SessionContext";
 import { ReactNode, useEffect, useState } from "react";
 
 export const TimeProvider = ({ children }: { children: ReactNode }) => {
@@ -20,7 +21,7 @@ export default function Home({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [, setSessionId] = useState<string | null>(null);
+  const [sessionId, setSessionId] = useState<string | null>(null);
   useEffect(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
       if (!localStorage.getItem('sessionId')) {
@@ -28,19 +29,24 @@ export default function Home({
         localStorage.setItem('sessionId', generatedSessionId);
         setSessionId(generatedSessionId);
       }
+      else {
+        setSessionId(localStorage.getItem('sessionId'));
+      }
     }
   }, []);
   return (
-    <div>
+    <SessionContext.Provider value={{ sessionId, setSessionId }}>
       <div>
-        <Header />
+        <div>
+          <Header />
+        </div>
+        <div className="container mx-auto flex flex-col justify-center items-center min-h-screen px-12 pt-20 sm:pt-16">
+          {children}
+        </div>
+        <div>
+          <Footer />
+        </div>
       </div>
-      <div className="container mx-auto flex flex-col justify-center items-center min-h-screen px-12 pt-20 sm:pt-16">
-        {children}
-      </div>
-      <div>
-        <Footer />
-      </div>
-    </div>
+    </SessionContext.Provider>
   );
 }

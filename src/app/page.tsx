@@ -3,18 +3,16 @@ import Image from 'next/image';
 import homeImg from 'public/civic-home.png';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useSession } from "@/context/SessionContext";
 
 export default function Home() {
   const router = useRouter();
-  const [, setSessionId] = useState<string | null>(null);
+  const { sessionId } = useSession();
 
   useEffect(() => {
-    const sessionId = localStorage.getItem("sessionId");
-    setSessionId(sessionId)
-    if (sessionId == null){
+    if (sessionId === null) {
       return
     }
-
     const landingTime = new Date().toISOString();
 
     // Send the landing time to your server
