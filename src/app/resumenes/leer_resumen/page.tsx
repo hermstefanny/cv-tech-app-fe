@@ -106,6 +106,9 @@ function SummaryPage() {
 
     fetchData();
   }, []);
+  if (!processedSummary) {
+    return <div>Cargando...</div>;
+  }
   return <div>
     {processedSummary}
   </div>
