@@ -40,7 +40,7 @@ export default async function Home() {
             </div>
             <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/90 p-4 md:p-4 lg:p-6 leading-relaxed shadow-md">
               <p>
-                La página <a href="https://gobiernoabierto.quito.gob.ec/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 underline"><b>Gobierno Abierto</b></a> incluye
+                La página oficial del municipio <a href="https://gobiernoabierto.quito.gob.ec/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 underline"><b>Gobierno Abierto</b></a> incluye
                 además, información pública sobre presupuestos, obras y otros temas de interés ciudadano.
               </p>
             </div>
