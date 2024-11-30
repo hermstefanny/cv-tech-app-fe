@@ -19,7 +19,7 @@ const openSans = localFont({
 
 export const metadata: Metadata = {
   title: "CiviConecta",
-  description: "Proyecto académico y ciudadano para la interpretación de datos abiertos del gobierno local",
+  description: "Proyecto ciudadano para la interpretación de datos abiertos del Municipio de Quito",
 };
 
 

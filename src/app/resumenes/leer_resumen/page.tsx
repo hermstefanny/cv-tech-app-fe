@@ -50,7 +50,6 @@ function SummaryPage() {
         const response = await fetch(`/api/summaries?id=${summaryId}`);
         const resp = await response.json();
         const summary: Summary = resp.summary;
-
         const processedContents = await Promise.all(
           summary.content.map((content) => processContent(content))
         );
@@ -78,7 +77,7 @@ function SummaryPage() {
               <div className="lg:w-1/3 w-full flex flex-col items-center p-2 lg:p-4 space-y-4">
                 <Image
                   src={docLinkImg}
-                  alt="Ilustracion con un documento saliendo de un laptop"
+                  alt="Ilustracion con un documento saliendo de un laptop con una persona que lo recibe"
                   className="object-contain max-h-96"
                 />
                   <Link onClick={() => handleClickPDF(summary.document_id)} 
@@ -106,6 +105,7 @@ function SummaryPage() {
 
     fetchData();
   }, []);
+
   if (!processedSummary) {
     return <div>Cargando...</div>;
   }

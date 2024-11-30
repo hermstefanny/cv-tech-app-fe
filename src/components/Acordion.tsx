@@ -1,7 +1,8 @@
 "use client";
 import Link from 'next/link';
 import { useState } from "react";
-// Define the Summary interface
+
+// INTERFACES
 interface Summary {
   id: string;
   date: string;
@@ -9,33 +10,31 @@ interface Summary {
   document_id: string;
 }
 
-// Define the SummariesByMonth interface
 interface SummariesByMonth {
   [key: string]: Summary[];
 }
 
-// Define the props interface for the Accordion component
 interface AccordionProps {
   summariesByMonth: SummariesByMonth | null | undefined;
 }
 
 export default function Accordion({ summariesByMonth }: AccordionProps) {
-  const [openMonth, setOpenMonth] = useState<string | null>(null);
+  const [opennedMonth, setOpennedMonth] = useState<string | null>(null);
 
   if (!summariesByMonth) {
     return <div>Cargando...</div>;
   }
 
-  const monthOrder = [
+  const monthSpNames = [
     "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
   ];
 
   const toggleAccordion = async (month: string) => {
-    if (openMonth === month) {
-      setOpenMonth(null); // Close if clicked again
+    if (opennedMonth === month) {
+      setOpennedMonth(null); 
     } else {
-      setOpenMonth(month); // Open the clicked month's section
+      setOpennedMonth(month); 
     }
     const date = new Date().toISOString();
     const action = `Click on MES_${month} button`;
@@ -68,24 +67,23 @@ export default function Accordion({ summariesByMonth }: AccordionProps) {
       },
       method: "POST",
     });
-
   }
 
   return (
     <div key="test" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
-      {monthOrder.map((month) => (
+      {monthSpNames.map((month) => (
         summariesByMonth[month] && (
           <div key={month} className="flex flex-col  aspect-w-1  w-full sm:w-52 flex-grow">
-            {/* Button for each month */}
+
             <button
               onClick={() => toggleAccordion(month)}
-              className={`w-full border rounded p-2  text-white mb-2 ${openMonth === month ? "bg-sky-800" : "bg-sky-600  hover:bg-sky-700 transition shadow-inner"
+              className={`w-full border rounded p-2  text-white mb-2 ${opennedMonth === month ? "bg-sky-800" : "bg-sky-600  hover:bg-sky-700 transition shadow-inner"
                 }`}
             >
               {month}
             </button>
-            {/* Accordion content that expands below the button */}
-            {openMonth === month && (
+
+            {opennedMonth === month && (
               <div className="w-full p-2 flex flex-col gap-2 border leading-relaxed mt-0 shadow-md">
                 {summariesByMonth[month].slice().sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()).map((summary) => (
                     <div key={summary.id}>

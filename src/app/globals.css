@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Variables for light/dark mode */
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -12,10 +12,10 @@
 body {
   color: var(--foreground);
   background: #ffffff;
-  font-family: var(--font-open-sans), sans-serif; /* Default font */
+  font-family: var(--font-open-sans), sans-serif; 
 }
 
-/* Utility for text wrapping */
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -23,15 +23,14 @@ body {
 }
 
 p, a, li, div, span {
-  font-family: var(--font-open-sans), sans-serif; /* Ensure Open Sans applies to main text elements */
+  font-family: var(--font-open-sans), sans-serif; 
 }
 
 
-/* Include any specific styles for headers to use Montserrat */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-montserrat), sans-serif; /* Ensure headers use Montserrat */
+  font-family: var(--font-montserrat), sans-serif; 
 }
 
 button {
-  font-family: var(--font-montserrat); /* Use Montserrat for buttons */
+  font-family: var(--font-montserrat); 
 }

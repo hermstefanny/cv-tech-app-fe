@@ -15,7 +15,6 @@ export default function Home() {
     }
     const landingTime = new Date().toISOString();
 
-    // Send the landing time to your server
     fetch("/api/actions", {
       body: JSON.stringify({
         sessionId,
@@ -54,21 +53,21 @@ export default function Home() {
           ¿Qué es CiviConecta?
         </h1>
       </div>
-      {/* Main Content Wrapper with Border */}
+     
       <div className="w-full lg:max-w-6xl rounded-lg shadow-md overflow-hidden border leading-relaxed mt-4 ">
         <div className="flex flex-col lg:flex-row w-full lg:max-w-6xl items-center  overflow-hidden">
           <div className="lg:w-2/3 w-full flex justify-center p-4 lg:p-4">
-            {/* Left section with the image, centered within its container */}
+
             <Image
               src={homeImg}
-              alt="Ilustracion sobre transparencia a través de medios tecnológicos"
+              alt="Ilustración que muestra a una persona en un podio con un peródico que dice Transparencia detrás"
               className="object-contain max-h-96"
             />
           </div>
 
-          {/* Right section with the text */}
+     
           <div className="lg:w-1/3 w-full flex flex-col items-center p-2 lg:p-4 space-y-4">
-            {/* Text Blocks */}
+
             <div className="text-sky-800 text-xs md:text-sm lg:text-base  bg-sky-100/80 p-4 md:p-6 lg:p-8  leading-relaxed shadow-md">
               <p>
                 <span className="font-semibold">CiviConecta </span>es un proyecto cívico que quiere establecer un puente entre los gobiernos locales y sus ciudadanos.
@@ -84,7 +83,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Additional Text Block Section */}
+
 
         <div className="w-full p-2 lg:p-4">
           <div className="text-sky-800 text-xs md:text-sm lg:text-base border border-sky-600 leading-relaxed shadow-md p-4 md:p-4 lg:p-6">
@@ -97,14 +96,14 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Button Section */}
+
       <div className="flex justify-center mt-6 p-4">
         <button onClick={handleClick} className="border rounded p-2 bg-sky-600 text-white mb-2 hover:bg-sky-700 transition">
           Leer resúmenes
         </button>
       </div>
 
-      {/* Footer Note */}
+
       <div className="text-center p-4 ">
         <p className="text-sm text-gray-600 border border-rose-400 leading-relaxed shadow-md mt-2 p-2">
           <strong className="font-bold">Nota:</strong> Este proyecto es un <span className="font-semibold">prototipo en desarrollo</span>. Consulta la sección

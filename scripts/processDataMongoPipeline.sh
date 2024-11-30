@@ -8,11 +8,11 @@
   {
     $group: {
       _id: "$session_id",
-      // Group by session_id
+
       count: {
         $sum: 1,
       },
-      // Count the number of documents in each group
+     
       actions: {
         $push: {
           action: "$action",
@@ -29,7 +29,7 @@
           input: "$actions",
           sortBy: {
             date: 1,
-          }, // Sort actions by date in ascending order
+          }, 
         },
       },
     },
@@ -73,7 +73,7 @@
                   },
                 ],
               },
-              1000, // Convert milliseconds to seconds
+              1000, 
             ],
           },
         },

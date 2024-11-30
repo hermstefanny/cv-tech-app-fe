@@ -62,7 +62,7 @@ export default function Header() {
     return (
         <div className="w-full absoulte top-0 text-white bg-sky-800 z-50 shadow-md">
             <nav className="container relative flex flex-wrap items-center justify-between mx-auto p-6 ">
-                {/* Logo and Text Wrapper */}
+                
                 <Link onClick={handleClickInicio} href="/" className="flex items-center space-x-2 font-open-sans font-semibold hover:text-sky-400">
                     <Image src={LogoImg} alt="CiviConecta Logo" width={40} height={40} />
                     <span className="text-2xl font-bold">CiviConecta</span>

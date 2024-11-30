@@ -1,4 +1,4 @@
-// This API route is used to fetch a summary by its ID.
+// This API route is used to  write the metrics to the database
 import { db } from '@/db';
 import { createUserActionAndPost } from '@/lib/orm';
 import { NextRequest } from 'next/server';
